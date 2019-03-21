@@ -14,4 +14,4 @@
 
 > Webpack
 
-1. 从零开始配置webpack(基于baebel 7版本)
+1. [从零开始配置webpack(基于baebel 7版本)](https://github.com/YvetteLau/Blog/issues/1)
