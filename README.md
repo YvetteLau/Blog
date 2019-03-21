@@ -6,12 +6,16 @@
 
 - [segmentFault](https://segmentfault.com/u/liuyan666/articles)
 
-> Javascript
+> ## Javascript
 
-1. Promise的源码实现(完美符合PromiseA+规范)
+1. [Promise的源码实现(完美符合PromiseA+规范)](https://github.com/YvetteLau/Blog/issues/2)
 
 
+> ## React
 
-> Webpack
+1. [React新旧生命周期一览](https://github.com/YvetteLau/Blog/issues/3)
+
+
+> ## Webpack
 
 1. [从零开始配置webpack(基于baebel 7版本)](https://github.com/YvetteLau/Blog/issues/1)
