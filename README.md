@@ -1,10 +1,11 @@
 ## 博客目录
 
-努力打造一系列前端进阶的优质文章，博客侧重于原生JS, React、ReactNative和Webpack等入门与底层原理分析，只有在自己实践和深入理解后，才会写相关博文，以确保博文内容的准确性。
+努力打造一系列前端进阶的优质文章，博客侧重于原生JS、 React、ReactNative和Webpack等入门与底层原理分析，只有在自己实践和深入理解后，才会写相关博文，以确保博文内容的准确性。
 
 欢迎关注本人的博文:
 
-- [segmentFault](https://segmentfault.com/u/liuyan666/articles)
+- #### [segmentFault](https://segmentfault.com/u/liuyan666/articles)
+- #### [掘金](https://juejin.im/user/5c6256596fb9a049bd42c770/posts)
 
 > ## Javascript
 
