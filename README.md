@@ -11,7 +11,7 @@
 
 1. [Promise的源码实现(完美符合PromiseA+规范)](https://github.com/YvetteLau/Blog/issues/2)
 2. [彻底搞懂浏览器Event-loop](https://github.com/YvetteLau/Blog/issues/4)
-
+3. [嗨，听说你很懂this？我不太相信！](https://github.com/YvetteLau/Blog/issues/6)
 
 > ## React
 
