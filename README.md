@@ -1,6 +1,5 @@
 ## 博客目录
 
-**【京东高级程序员带你一起玩转前端】**
 
 打造一系列前端进阶的优质文章，博客将侧重于原生JS、 React、ReactNative和Webpack等入门与底层原理分析，只有在自己实践和深入理解后，才会写相关博文，以确保博文内容的准确性。
 
@@ -13,7 +12,7 @@
 
 1. [Promise的源码实现(完美符合PromiseA+规范)](https://github.com/YvetteLau/Blog/issues/2)
 2. [彻底搞懂浏览器Event-loop](https://github.com/YvetteLau/Blog/issues/4)
-3. [嗨，听说你很懂this？我不太相信！](https://github.com/YvetteLau/Blog/issues/6)
+3. [嗨，你真的懂this吗？](https://github.com/YvetteLau/Blog/issues/6)
 
 > ## React
 
