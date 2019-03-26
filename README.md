@@ -21,7 +21,7 @@
 
 > ## Webpack
 
-1. [从零开始配置webpack(基于baebel 7版本)](https://github.com/YvetteLau/Blog/issues/1)
+1. [从零开始配置webpack(基于babel 7版本)](https://github.com/YvetteLau/Blog/issues/1)
 
 > ## 移动web
 
