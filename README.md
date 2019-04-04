@@ -25,4 +25,4 @@
 
 > ## 移动web
 
-1. [9012了，你还不会移动端真机调试？](https://github.com/YvetteLau/Blog/issues/5)
+1. [9102了，你还不会移动端真机调试？](https://github.com/YvetteLau/Blog/issues/5)
