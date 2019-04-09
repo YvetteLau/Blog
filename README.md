@@ -8,6 +8,10 @@
 - #### [segmentFault](https://segmentfault.com/u/liuyan666/articles)
 - #### [掘金](https://juejin.im/user/5c6256596fb9a049bd42c770/posts)
 
+> ## 面试系列
+
+1.[【面试篇】寒冬求职季之你必须要懂的原生JS(上)](https://github.com/YvetteLau/Blog/issues/7)
+
 > ## Javascript
 
 1. [Promise的源码实现(完美符合PromiseA+规范)](https://github.com/YvetteLau/Blog/issues/2)
