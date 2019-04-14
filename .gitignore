@@ -1,1 +1,4 @@
 tempCodeRunnerFile.js
+node_modules
+package-lock.js
+.DS_Store
