@@ -1,5 +1,5 @@
-const bluebird = require('bluebird');
 const fs = require('fs');
+const bluebird = require('bluebird');
 const readFile = bluebird.promisify(fs.readFile);
 
 /**
@@ -31,6 +31,8 @@ value.then((data) => {
 const co = require('co');
 co(read()).then(data => {
     console.log(data); //输出22
+}).catch(err => {
+    console.log(err);
 });
 
 
