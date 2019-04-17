@@ -3,7 +3,7 @@ const bluebird = require('bluebird');
 const readFile = bluebird.promisify(fs.readFile);
 
 /**
- * 对应 promise 中的解决回调地狱部分
+ * 读取A--->读取B--->读取C
  */
 function* read() {
     let info = yield readFile('./JS/Async/data/info.txt', 'utf-8');
