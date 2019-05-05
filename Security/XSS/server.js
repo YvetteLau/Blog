@@ -38,8 +38,14 @@ app.post('/api/login', (req, res) => {
 //1.反射型XSS攻击: http://localhost:3000/hello?type=<script>alert('恶意内容')</script>
 //chrome能够检测到Url上的XSS攻击(可在firefox或者是其它浏览器测试)
 app.get('/hello', function(req, res) {
-    res.send(`${req.query.type}`); //拿到 url 上的 type 参数值，并返回给前端
+    res.send(`${req.query.type}`); //拿到 url 上的 type 参数，并返回给前端    
+    
+    //对type查询参数进行编码，即可解决当前的XSS攻击(可重启服务查看)
+    // res.send(`${encodeURIComponent(req.query.type)}`);
 });
 
-
+app.get('/error', function(req, res) {
+    //对查询参数进行编码，避免XSS攻击
+    res.send(`${encodeURIComponent(req.query.type)}`); 
+});
 app.listen(3000);

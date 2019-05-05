@@ -57,7 +57,7 @@
                     location.href = `/hello?type=<script>alert('恶意内容')<\/script>`;
                 }else {
                     //登录失败
-                    location.href = `/hello?type=<script>alert('恶意内容')<\/script>`;
+                    location.href = `/error?type=<script>alert('恶意内容')<\/script>`;
                 }
             });
         });
