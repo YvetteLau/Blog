@@ -1,0 +1,13 @@
+{
+  "name": "security",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "dependencies": {
+    "body-parser": "^1.19.0",
+    "bootstrap": "3",
+    "cookie-parser": "^1.4.4",
+    "express": "^4.16.4",
+    "jquery": "^3.4.0"
+  }
+}
