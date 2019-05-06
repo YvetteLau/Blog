@@ -53,10 +53,10 @@
                 password
             }).then((res) => {
                 if(res.code === 0) {
-                    //登录成功页(此时，还能够获取到用户的cookie)
-                    location.href = `/hello?type=<script>alert('恶意内容')<\/script>`;
+                    //登录成功页
+                    location.href = `/welcome?type=<script>alert('恶意内容')<\/script>`;
                 }else {
-                    //登录失败
+                    //登录失败(如果是用户登录成功时，还能够获取到用户的cookie)
                     location.href = `/error?type=<script>alert('恶意内容')<\/script>`;
                 }
             });
