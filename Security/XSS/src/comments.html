@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <title>Document</title>
+    <style>
+        .list-group-item span {
+            color: #337ab7;
+            display: inline-block;
+            min-width: 40px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+                    <div class="panel panel-info" style="margin-top:50px;">
+                        <div class="panel-heading">
+                            <h3>论坛</h3>
+                        </div>
+                        <div class="panel-body">
+                            <ul class="list-group">
+
+                            </ul>
+                            <form onsubmit="return false">
+                                <div class="form-group">
+                                    <label for="comments">打个招呼吧</label>
+                                    <input class="form-control" type="text" id="comments" />
+                                </div>
+                                <div class="form-group">
+                                    <input class="btn btn-primary" type="button" id="publish" value="发帖" />
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/node_modules/jquery/dist/jquery.js"></script>
+<script>
+    // 存储型 XSS 攻击
+    $(document).ready(function () {
+
+        //获取帖子列表
+        function getList() {
+            $.get('/getComments').then(res => {
+                if (res.code === 0) {
+                    let lists = '';
+                    $.each(res.comments, (index, comment) => {
+                        console.log(comment)
+                        lists += `<li class="list-group-item"><span>${comment.username}:</span> ${comment.content}</li>`;
+                    });
+                    $('.list-group').html(lists);
+                }
+            });
+        };
+        getList();
+
+        $('#publish').click(function () {
+            let comment = $('#comments').val();
+
+            $.post('/addComment', { comment }).then(res => {
+                if (res.code === 1) {
+                    //跳去登录页
+                    location.href = '/login.html';
+                } else {
+                    //获取新的帖子列表
+                    getList();
+                    $('#comments').val('');
+                }
+            })
+        });
+    });
+
+</script>
+
+</html>
