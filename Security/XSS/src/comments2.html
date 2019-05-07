@@ -54,7 +54,7 @@
 
         //获取帖子列表
         function getList() {
-            $.get('/getComments').then(res => {
+            $.get('/getComments2').then(res => {
                 if (res.code === 0) {
                     let lists = '';
                     $.each(res.comments, (index, comment) => {
@@ -67,10 +67,30 @@
         };
         getList();
 
+        /**
+         * 1. 客户端数据传递给服务器之前，先检验过滤
+         * 2. 服务器接收到数据，在存储到服务器之前，做一次过滤
+         * 3. 前端接收到服务器传递过来的数据，在展示到页面前，进行一次过滤
+         */
+        //Html 编码
+        function encodeHtml(str) {
+            return str.replace(/&/g, '&amp;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&apos;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+        }
+        //Html 解码
+        function decodeHtml(str) {
+            return str.replace(/&amp;/g, '&')
+                    .replace(/&quot;/g, '\"')
+                    .replace(/&apos;/g, '\'')
+                    .replace(/&lt;/g, '<')
+                    .replace(/&gt;/g, '>')
+        }
         $('#publish').click(function () {
             let comment = $('#comments').val();
-            
-            $.post('/addComment', { comment }).then(res => {
+            $.post('/addComment2', { comment: encodeHtml(comment) }).then(res => {
                 if (res.code === 1) {
                     //跳去登录页
                     location.href = '/login.html';

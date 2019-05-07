@@ -47,15 +47,25 @@
             let commend = $('#comments').val();
             //没有对输入内容进行过滤
             if ($.trim(commend)) {
-                $('.list-group').append(`<li class="list-group-item">${encodeURIComponent(commend)}</li>`);
+                $('.list-group').append(`<li class="list-group-item">${commend}</li>`);
+                $('#comments').val('');
             }
         });
-
+        //Html 编码
+        function encodeHtml(str) {
+            return str.replace(/&/g, '&amp;')
+                    .replace(/"/g, '&quot;')
+                    .replace(/'/g, '&apos;')
+                    .replace(/</g, '&lt;')
+                    .replace(/>/g, '&gt;')
+        }
         $('#security').click(function () {
             let commend = $('#comments').val();
             //对输入内容进行转义
+            //如果是url地址，可以直接使用 encodeURIComponent 进行转义
             if ($.trim(commend)) {
-                $('.list-group').append(`<li class="list-group-item">${commend}</li>`);
+                $('.list-group').append(`<li class="list-group-item">${encodeHtml(commend)}</li>`);
+                $('#comments').val('');
             }
         });
     });

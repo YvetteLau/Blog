@@ -75,4 +75,27 @@ app.post('/addComment', function (req, res) {
 });
 
 
+//安全的评论列表
+let comments2 = [
+    { username: 'yvette', content: '大家好' },
+    { username: 'yvette', content: '我是刘小夕' },
+    { username: 'star', content: '大家好，我是Star' },
+]
+app.get('/getComments2', function (req, res) {
+    res.json({ code: 0, comments: comments2 });
+});
+
+app.post('/addComment2', function (req, res) {
+    //cardId (req.cookies[SESSION_ID])要派上用场啦~
+    let info = session[req.cookies[SESSION_ID]];
+    if (info) {
+        //用户已经登录
+        let username = info.user.username;
+        comments2.push({ username, content: req.body.comment });
+        res.json({ code: 0, comments: comments2 });
+    } else {
+        res.json({ code: 1, error: 'user not logged in.' });
+    }
+});
+
 app.listen(3000);
