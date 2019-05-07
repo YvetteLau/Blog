@@ -84,14 +84,19 @@ let comments2 = [
 app.get('/getComments2', function (req, res) {
     res.json({ code: 0, comments: comments2 });
 });
-
+function encodeHtml(str) {
+    return str.replace(/"/g, '&quot;')
+            .replace(/'/g, '&apos;')
+            .replace(/</g, '&lt;')
+            .replace(/>/g, '&gt;');
+}
 app.post('/addComment2', function (req, res) {
     //cardId (req.cookies[SESSION_ID])要派上用场啦~
     let info = session[req.cookies[SESSION_ID]];
     if (info) {
         //用户已经登录
         let username = info.user.username;
-        comments2.push({ username, content: req.body.comment });
+        comments2.push({ username, content: encodeHtml(req.body.comment) });
         res.json({ code: 0, comments: comments2 });
     } else {
         res.json({ code: 1, error: 'user not logged in.' });

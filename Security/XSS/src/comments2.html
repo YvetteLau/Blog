@@ -58,8 +58,10 @@
                 if (res.code === 0) {
                     let lists = '';
                     $.each(res.comments, (index, comment) => {
-                        console.log(comment)
-                        lists += `<li class="list-group-item"><span>${comment.username}:</span> ${comment.content}</li>`;
+                        
+                        content = encodeHtml(comment.content);
+                        console.log(comment.content,'  ******   ', content)
+                        lists += `<li class="list-group-item"><span>${comment.username}:</span> ${content}</li>`;
                     });
                     $('.list-group').html(lists);
                 }
@@ -74,19 +76,17 @@
          */
         //Html 编码
         function encodeHtml(str) {
-            return str.replace(/&/g, '&amp;')
-                    .replace(/"/g, '&quot;')
+            return str.replace(/"/g, '&quot;')
                     .replace(/'/g, '&apos;')
                     .replace(/</g, '&lt;')
-                    .replace(/>/g, '&gt;')
+                    .replace(/>/g, '&gt;');
         }
         //Html 解码
         function decodeHtml(str) {
-            return str.replace(/&amp;/g, '&')
-                    .replace(/&quot;/g, '\"')
+            return str.replace(/&quot;/g, '\"')
                     .replace(/&apos;/g, '\'')
                     .replace(/&lt;/g, '<')
-                    .replace(/&gt;/g, '>')
+                    .replace(/&gt;/g, '>');
         }
         $('#publish').click(function () {
             let comment = $('#comments').val();
