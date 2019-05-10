@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <title>转账</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+                    <div class="panel panel-info" style="margin-top:50px;">
+                        <div class="panel-heading">
+                            <h3>转账</h3>
+                            <h5>
+                                <p>用户：<span id='username'></span></p>
+                                <p>余额：<span id='account'></span></p>
+                            </h5>
+                        </div>
+                        <div class="panel-body">
+                            <form onsubmit="return false">
+                                <div class="form-group">
+                                    <label for="payee">收款人</label>
+                                    <input class="form-control" type="text" id="payee" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="amount">金额</label>
+                                    <input class="form-control" type="text" id="amount" />
+                                </div>
+                                <div class="form-group">
+                                    <input class="btn btn-primary" type="submit" id="transfer" value="登录" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/node_modules/jquery/dist/jquery.js"></script>
+<script>
+
+    $(document).ready(function () {
+        function getUserInfo() {
+            $.get('/api/userinfo').then(res => {
+                if (res.code === 1) {
+                    location.href = '/login.html';
+                } else {
+                    let { username, account } = res.info;
+                    $('#username').text(username);
+                    $('#account').text(account);
+                }
+            });
+        }
+        getUserInfo();
+
+        $('#transfer').click(function () {
+            let payee = $('#payee').val(); //收款人
+            let amount = $('#amount').val(); //转账金融
+            /**
+             * 省略了用户名/密码的合规性检查
+             */
+            $.post('/api/transfer', {
+                payee,
+                amount
+            }).then((res) => {
+                if (res.code === 0) {
+                    //重新获取用户信息
+                    getUserInfo();
+                } else {
+                    //登录失败(如果是用户登录成功时，还能够获取到用户的cookie)
+                    location.href = `/login.html`;
+                }
+            });
+        });
+    });
+</script>
+
+</html>

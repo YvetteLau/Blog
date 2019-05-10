@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="/node_modules/bootstrap/dist/css/bootstrap.min.css" />
+    <title>登录</title>
+</head>
+
+<body>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div class="col-md-6 col-md-offset-3 col-lg-6 col-lg-offset-3">
+                    <div class="panel panel-info" style="margin-top:50px;">
+                        <div class="panel-heading">
+                            <h3>登录</h3>
+                        </div>
+                        <div class="panel-body">
+                            <form onsubmit="return false">
+                                <div class="form-group">
+                                    <label for="username">用户名</label>
+                                    <input class="form-control" type="text" id="username" />
+                                </div>
+                                <div class="form-group">
+                                    <label for="password">密码</label>
+                                    <input class="form-control" type="text" id="password" />
+                                </div>
+                                <div class="form-group">
+                                    <input class="btn btn-primary" type="submit" id="login" value="登录" />
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+<script src="/node_modules/jquery/dist/jquery.js"></script>
+<script>
+    // 反射型 XSS 攻击
+    $(document).ready(function() {
+        $('#login').click(function() {
+            let username = $('#username').val();
+            let password = $('#password').val();
+            /**
+             * 省略了用户名/密码的合规性检查
+             */
+            $.post('/api/login', {
+                username,
+                password
+            }).then((res) => {
+                if(res.code === 0) {
+                    //登录成功页
+                    location.href = `/`;
+                }else {
+                    
+                }
+            });
+        });
+    });
+</script>
+
+</html>
