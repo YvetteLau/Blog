@@ -66,9 +66,13 @@
             /**
              * 省略了用户名/密码的合规性检查
              */
-            $.post('/api/transfer', {
+            let token = document.cookie.match(/connect.sid=([^;]*)/) || [];
+            
+            // 加密方式和服务端约定
+            $.post('/api/transfer3', {
                 payee,
-                amount
+                amount,
+                token: 'mytoken_' + token[1]
             }).then((res) => {
                 if (res.code === 0) {
                     //重新获取用户信息

