@@ -5,7 +5,7 @@
 
 > ### 小姐姐的微信公众号：前端宇宙。
 
-![1](https://user-gold-cdn.xitu.io/2019/4/11/16a0c583ed725866?w=258&h=258&f=jpeg&s=27756)
+![1](https://m.360buyimg.com/njmobilecms/jfs/t29455/282/1316221258/191433/68b895c8/5cdcf6a4N507d071f.png)
 
 欢迎关注本人的博文:
 
@@ -16,6 +16,7 @@
 
 1. [【面试篇】寒冬求职季之你必须要懂的原生JS(上)](https://github.com/YvetteLau/Blog/issues/7)
 2. [【面试篇】寒冬求职季之你必须要懂的原生JS(中)](https://github.com/YvetteLau/Blog/issues/28)
+3. [【面试篇】寒冬求职之你必须要懂的Web安全](https://github.com/YvetteLau/Blog/issues/29)
 
 > ## Javascript
 
