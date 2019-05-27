@@ -20,7 +20,7 @@
 
 > ## Step-By-Step
 
-1. [【Step-By-Step】一周面试题 && 答案汇总 / 周刊01](https://github.com/YvetteLau/Blog/issues/30)
+1. [【Step-By-Step】一周面试题 && 答案汇总 / 周刊01](https://github.com/YvetteLau/Blog/issues/31)
 
 > ## Javascript
 
