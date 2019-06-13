@@ -7,18 +7,9 @@ test(' instance_of(L, R) ', () => {
     A.prototype = new B();
     let a = new A();
 
-    expect(instance_of({a:1}, Object)).toEqual(true);
-    expect(instance_of(A, Function)).toEqual(A instanceof Function);
-
-    let result1 = instance_of(a, C);
-    let correct1 = a instanceof C;
-    expect(result1).toEqual(correct1);
-
-    let result2 = instance_of(a, A);
-    let correct2 = a instanceof A;
-    expect(result2).toEqual(correct2);
-
-    let result3 = instance_of(a, B);
-    let correct3 = a instanceof B;
-    expect(result3).toEqual(correct3);
+    expect(instance_of({a:1}, Object)).toBe(true);
+    expect(instance_of(A, Function)).toBe(A instanceof Function);
+    expect(instance_of(a, C)).toBe(a instanceof C);
+    expect(instance_of(a, A)).toBe(a instanceof A);
+    expect(instance_of(a, B)).toBe(a instanceof B);
 })
