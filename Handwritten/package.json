@@ -1,0 +1,19 @@
+{
+  "name": "Handwritten",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "babel-core": "^6.26.3",
+    "babel-jest": "^24.8.0",
+    "babel-preset-env": "^1.7.0",
+    "jest": "^24.8.0",
+    "regenerator-runtime": "^0.13.2"
+  }
+}
