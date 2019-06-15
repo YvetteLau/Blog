@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+
+<head lang="zh-CN">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title></title>
+    <style>
+        .base {
+            height: 200px;
+            width: 200px;
+            background: pink;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            cursor: pointer;
+        }
+
+        p {
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="base">
+        <p>点击触发事件</p>
+    </div>
+</body>
+<script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
+<script>
+    window.onload = function () {
+        function debounce(func, wait, immediate = true) {
+            let timer;
+            // 延迟执行函数
+            const later = (context, args) => setTimeout(() => {
+                timer = null;// 倒计时结束
+                if (!immediate) {
+                    func.apply(context, args);
+                    //执行回调
+                    context = args = null;
+                }
+            }, wait);
+            let debounced = function (...params) {
+                let context = this;
+                let args = params;
+                if (!timer) {
+                    timer = later(context, args);
+                    if (immediate) {
+                        //立即执行
+                        func.apply(context, args);
+                    }
+                } else {
+                    clearTimeout(timer);
+                    //函数在每个等待时延的结束被调用
+                    timer = later(context, args);
+                }
+            }
+            debounced.cancel = function () {
+                clearTimeout(timer);
+                timer = null;
+            };
+            return debounced;
+        };
+
+
+        function handleClick(e) {
+            console.log(this); //this值正确传递
+            console.log(e, [...arguments].splice(1)); //参数正确传递
+        }
+
+        /*  防抖，immediate = ture 每个等待时延的开始被调用 */
+        let handle = debounce(handleClick, 1000, true);
+        // let handle = _.debounce(handleClick, 1000, {
+        //     leading: true,
+        //     trailing: false
+        // });
+        document.querySelector('.base').onclick = handle;
+    }
+
+</script>
