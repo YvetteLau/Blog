@@ -1,4 +1,4 @@
-import _new from '../src/_new';
+import _new from '../src/new';
 
 test('_new 无返回值', () => {
     function Parent(name, age) {
