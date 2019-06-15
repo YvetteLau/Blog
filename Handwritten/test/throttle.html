@@ -33,33 +33,71 @@
 <script src="https://cdn.jsdelivr.net/npm/lodash@4.17.11/lodash.min.js"></script>
 <script>
     window.onload = function () {
-        function timeThrottle(func, wait) {
+        function throttle(func, wait, options = {
+            leading: true,
+            trailing: true
+        }) {
             let timer;
-            return function throttled() {
+            let lastTime = 0;
+
+            const later = function (context, args) {
+                lastTime = options.trailing === true ? Date.now() : 0;
+                func.apply(context, args);
+                timer = null;
+            };
+
+            let throttled = function () {
+                let context = this;
                 let args = arguments;
-                if (!timer) {
-                    timer = setTimeout(() => {
-                        func.apply(this, args);
+                let nowTime = Date.now();
+                if (!lastTime && options.leading === false) {
+                    lastTime = nowTime; //lastTime为0，会立即响应
+                }
+                let remaining = wait - (nowTime - lastTime);
+                if (remaining <= 0) {
+                    //remaining 的时间小于等于 0，表示两次触发的时间大于了间隔时间
+                    if (timer) {
+                        //清楚定时器
                         clearTimeout(timer);
                         timer = null;
-                    }, wait);
+                    }
+                    lastTime = nowTime;
+                    func.apply(context, args);
+                } else if (!timer && options.trailing) {
+                    // 倒计时还在进行中，响应新的事件，重新设置事件
+                    timer = setTimeout(() => { later(context, args) }, remaining);
                 }
-            }
+            };
+
+            throttled.cancel = function () {
+                clearTimeout(timeout);
+                lastTime = 0;
+                timer = null;
+            };
+
+            return throttled;
         }
+
+        function a() {
+            console.log(1);
+        }
+        // let b = throttle(a, 2000);
+        let b = _.throttle(a, 2000);
+        setTimeout(b, 0);
+        setTimeout(b, 800);
+        setTimeout(b, 1200);
+        setTimeout(b, 2500);
+
+
 
         function handleClick(e) {
             console.log(this); //this值正确传递
             console.log(e, [...arguments].splice(1)); //参数正确传递
         }
 
-        /*  防抖，immediate = ture 每个等待时延的开始被调用 */
-        let handle = timeThrottle(handleClick, 1000, true);
-        // let handle = _.throttle(handleClick, 1000, {
-        //     leading: true,
-        //     trailing: false
-        // });
+        let handle = throttle(handleClick, 2000);
+        // let handle = _.throttle(handleClick, 2000);
         document.querySelector('.base').onclick = handle;
-
     }
 
 </script>

@@ -1,4 +1,4 @@
-import { tampThrottle, timeThrottle } from '../src/throtte';
+import { tampThrottle, timeThrottle, throttle } from '../src/throtte';
 
 import { EventEmitter } from 'events';
 
@@ -164,6 +164,90 @@ test('定时器版 trottle/ 事件处理函数被调用2次 ', (done) => {
      */
     delay(() => {
         expect(frequency4.mock.calls.length).toBe(2);
+        done();
+    }, 50);
+});
+
+
+
+
+/** 
+ * 每 120 ms 触发一次 down 事件，共触发 5 次 
+ * 节流的间隔时间是 100ms,因此 frequency5 被调用了 5 次
+ */
+test('定时器版 trottle/ 事件处理函数被调用3次 ', (done) => {
+    let myEvent = new EventEmitter();
+    /** 高频 down 事件处理函数 */
+    const frequency5 = jest.fn();
+    /** 防抖间隔时间为 200ms */
+    let debounceFrequency = throttle(frequency5, 100);
+    myEvent.on('down', () => {
+        debounceFrequency('hello');
+    });
+    /** 共触发 5 次 */
+    let i = 0;
+    function delay(callback, interval) {
+        let timer = setTimeout(() => {
+            if (i < 5) {
+                myEvent.emit('down');
+                delay(callback, interval);
+                i++;
+            } else {
+                clearTimeout(timer);
+                callback();
+                myEvent.removeAllListeners('down');
+            }
+        }, interval);
+    }
+
+    /** 
+     * 每 120 ms 触发一次 down 事件 
+     * 防抖的间隔时间是 100ms,因此 frequency3 被调用了 5 次
+     */
+    delay(() => {
+        expect(frequency5.mock.calls.length).toBe(5);
+        done();
+    }, 120);
+});
+
+
+/** 
+ * 每 50 ms 触发一次 down 事件，共触发 5 次 
+ * 节流的间隔时间是 100ms, 第一次触发立即执行, frequency6 被调用了 3 次
+ * 我们期望的是调用3次，但是最后一次被忽略了
+ */
+
+test('定时器版 trottle/ 事件处理函数被调用2次 ', (done) => {
+    let myEvent = new EventEmitter();
+    /** 高频 down 事件处理函数 */
+    const frequency6 = jest.fn();
+    /** 防抖间隔时间为 200ms/立即执行 */
+    let debounceFrequency = throttle(frequency6, 100, true);
+    myEvent.on('down', () => {
+        debounceFrequency('Yvette');
+    });
+    /** 共触发 5 次 */
+    let i = 0;
+    function delay(callback, interval) {
+        let timer = setTimeout(() => {
+            if (i < 5) {
+                myEvent.emit('down');
+                delay(callback, interval);
+                i++;
+            } else {
+                clearTimeout(timer);
+                callback();
+                myEvent.removeAllListeners('down');
+            }
+        }, interval);
+    }
+
+    /** 
+     * 每 50 ms 触发一次 down 事件，共触发 5 次 
+     * 防抖的间隔时间是 100ms,第一次触发立即执行，frequency4 被调用了 3 次
+     */
+    delay(() => {
+        expect(frequency6.mock.calls.length).toBe(3);
         done();
     }, 50);
 });
