@@ -17,13 +17,16 @@
 1. [【面试篇】寒冬求职季之你必须要懂的原生JS(上)](https://github.com/YvetteLau/Blog/issues/7)
 2. [【面试篇】寒冬求职季之你必须要懂的原生JS(中)](https://github.com/YvetteLau/Blog/issues/28)
 3. [【面试篇】寒冬求职之你必须要懂的Web安全](https://github.com/YvetteLau/Blog/issues/29)
+4. [这儿有20道大厂面试题等你查收](https://github.com/YvetteLau/Blog/issues/35)
 
 > ## Step-By-Step
 
-1. [【Step-By-Step】一周面试题深入解析 / 周刊 01](https://github.com/YvetteLau/Blog/issues/31)
-2. [【Step-By-Step】一周面试题深入解析/ 周刊 02](https://github.com/YvetteLau/Blog/issues/32)
-2. [【Step-By-Step】一周面试题深入解析/ 周刊 03](https://github.com/YvetteLau/Blog/issues/33)
-2. [【Step-By-Step】一周面试题深入解析/ 周刊 04](https://github.com/YvetteLau/Blog/issues/34)
+1. [【Step-By-Step】高频面试题深入解析 / 周刊 01](https://github.com/YvetteLau/Blog/issues/31)
+2. [【Step-By-Step】高频面试题深入解析/ 周刊 02](https://github.com/YvetteLau/Blog/issues/32)
+3. [【Step-By-Step】高频面试题深入解析/ 周刊 03](https://github.com/YvetteLau/Blog/issues/33)
+4. [【Step-By-Step】高频面试题深入解析/ 周刊 04](https://github.com/YvetteLau/Blog/issues/34)
+5. [【Step-By-Step】高频面试题深入解析/ 周刊 05](https://github.com/YvetteLau/Blog/issues/36)
+6. [【Step-By-Step】高频面试题深入解析/ 周刊 06](https://github.com/YvetteLau/Blog/issues/37)
 
 > ## Javascript
 
