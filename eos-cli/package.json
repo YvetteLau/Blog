@@ -1,6 +1,6 @@
 {
     "name": "eos-cli",
-    "version": "1.0.0",
+    "version": "1.0.2",
     "description": "脚手架",
     "main": "index.js",
     "bin": {
@@ -8,7 +8,8 @@
     },
     "scripts": {
         "compile": "babel src -d dist",
-        "watch": "npm run compile -- --watch"
+        "watch": "npm run compile -- --watch",
+        "postinstall": "eos config set"
     },
     "keywords": [],
     "author": "",
