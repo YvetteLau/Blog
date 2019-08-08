@@ -27,6 +27,8 @@
 4. [【Step-By-Step】高频面试题深入解析/ 周刊 04](https://github.com/YvetteLau/Blog/issues/34)
 5. [【Step-By-Step】高频面试题深入解析/ 周刊 05](https://github.com/YvetteLau/Blog/issues/36)
 6. [【Step-By-Step】高频面试题深入解析/ 周刊 06](https://github.com/YvetteLau/Blog/issues/37)
+7. [【Step-By-Step】高频面试题深入解析/ 周刊 07](https://github.com/YvetteLau/Blog/issues/38)
+
 
 > ## Javascript
 
@@ -34,6 +36,11 @@
 2. [彻底搞懂浏览器Event-loop](https://github.com/YvetteLau/Blog/issues/4)
 3. [嗨，你真的懂this吗？](https://github.com/YvetteLau/Blog/issues/6)
 4. [细说JS异步发展历程](https://github.com/YvetteLau/Blog/issues/30)
+5. [【中高级前端必备】手摸手教你撸一个脚手架](https://github.com/YvetteLau/Blog/issues/39)
+6. [Proxy及其优点](https://github.com/YvetteLau/Blog/issues/40)
+7. [深入理解全能的 Reducer](https://github.com/YvetteLau/Blog/issues/41)
+8. [可靠React组件设计的7个准则之SRP](https://github.com/YvetteLau/Blog/issues/42)
+9. [可靠React组件设计的7个准则之封装](https://github.com/YvetteLau/Blog/issues/43)
 
 > ## React
 
