@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <link rel="shortcut icon" href="%PUBLIC_URL%/favicon.ico" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#000000" />
+    <meta name="description" content="Web site created using create-react-app" />
+    <title>React App</title>
+    <style>
+        #app {
+            width: 220px;
+            border: 1px solid #c9c9c9;
+            border-radius: 10px;
+            margin: 10px 20px;
+            padding: 20px;
+        }
+
+        .change-theme {
+            padding: 12px 22px;
+            border-radius: 10px;
+            color: #ffffff;
+            border: none;
+            outline: none;
+            margin: 5px 8px;
+            box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+        }
+
+        .change-theme:hover {
+            box-shadow: 0 9px 14px 0 rgba(0, 0, 0, 0.26), 0 17px 50px 0 rgba(0, 0, 0, 0.26);
+        }
+
+        #to-blue {
+            background-color: rgb(0, 51, 254);
+            font-weight: bold;
+        }
+
+        #to-pink {
+            background-color: rgb(247, 109, 132);
+            font-weight: bold;
+        }
+
+        #header {
+            font-weight: bold;
+            font-size: 16px;
+        }
+
+        #content {
+            line-height: 40px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+    <noscript>You need to enable JavaScript to run this app.</noscript>
+    <div id="app">
+        <div id="header">
+            前端宇宙
+        </div>
+        <div id="main">
+            <div id="content">大家好，我是前端宇宙作者刘小夕</div>
+            <button class="change-theme" id="to-blue">Blue</button>
+            <button class="change-theme" id="to-pink">Pink</button>
+        </div>
+    </div>
+</body>
+
+</html>
