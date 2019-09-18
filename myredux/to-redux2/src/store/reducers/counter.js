@@ -1,14 +1,13 @@
-import actions from '../actions';
-import * as actionTypes from '../actionTypes';
+import { INCRENENT, DECREMENT } from '../action-types';
 
-function reducer(state = {number: 0}, action) {
-    switch(action.type) {
-        case actionTypes.INCREMENT:
+export default function counter(state={number: 0}, action) {
+    switch (action.type) {
+        case INCRENENT:
             return {
                 ...state,
                 number: state.number + action.number
             }
-        case actionTypes.DECREMENT:
+        case DECREMENT:
             return {
                 ...state,
                 number: state.number - action.number
@@ -17,5 +16,3 @@ function reducer(state = {number: 0}, action) {
             return state;
     }
 }
-
-export default reducer;
