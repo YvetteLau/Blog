@@ -16,4 +16,4 @@ function bindActionCreators(actionCreator, dispatch) {
     }
 }
 
-export default bindActionCreator;
+export default bindActionCreators;
