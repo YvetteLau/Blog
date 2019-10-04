@@ -1,12 +1,14 @@
+import compose from './compose';
+
 const applyMiddleware = (...middlewares) => createStore => (...args) => {
     let store = createStore(...args);
     let dispatch;
     const middlewareAPI = {
-        getState: store.getState,
+        getState: store.getstate,
         dispatch: (...args) => dispatch(...args)
     }
-    let middles = middlewares.map(middle => middle(middlewareAPI));
-    dispatch = middles.reduceRight((prev, current) => current(prev), store.dispatch);
+    let middles = middlewares.map(middleware => middleware(middlewareAPI));
+    dispatch = compose(...middles)(store.dispatch);
     return {
         ...store,
         dispatch
