@@ -39,13 +39,14 @@
 5. [【中高级前端必备】手摸手教你撸一个脚手架](https://github.com/YvetteLau/Blog/issues/39)
 6. [Proxy及其优点](https://github.com/YvetteLau/Blog/issues/40)
 7. [深入理解全能的 Reducer](https://github.com/YvetteLau/Blog/issues/41)
-8. [可靠React组件设计的7个准则之SRP](https://github.com/YvetteLau/Blog/issues/42)
-9. [可靠React组件设计的7个准则之封装](https://github.com/YvetteLau/Blog/issues/43)
+
 
 > ## React
 
 1. [React新旧生命周期一览](https://github.com/YvetteLau/Blog/issues/3)
-2. [React中组件逻辑复用的那些事儿]((https://github.com/YvetteLau/Blog/issues/50)
+2. [可靠React组件设计的7个准则之SRP](https://github.com/YvetteLau/Blog/issues/42)
+3. [可靠React组件设计的7个准则之封装](https://github.com/YvetteLau/Blog/issues/43)
+4. [React中组件逻辑复用的那些事儿](https://github.com/YvetteLau/Blog/issues/50)
 
 > ## Webpack
 
