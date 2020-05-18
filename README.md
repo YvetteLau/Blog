@@ -45,7 +45,7 @@
 > ## React
 
 1. [React新旧生命周期一览](https://github.com/YvetteLau/Blog/issues/3)
-
+2. [React中组件逻辑复用的那些事儿]((https://github.com/YvetteLau/Blog/issues/50)
 
 > ## Webpack
 
